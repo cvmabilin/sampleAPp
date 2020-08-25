@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Image, StatusBar, TouchableOpacity } from 'react-native';
+import { View, Image, StatusBar, TouchableOpacity, Platform } from 'react-native';
 import logo from '../../../images/kadoubot.png'
+
+let sideBarPaddingTop = (Platform.OS === 'ios') ? 50 : StatusBar.currentHeight + 10
 
 const SideBarHeader = ({ navigateToCallback }) => (
 	<TouchableOpacity onPress={() => navigateToCallback('mainPage')}>
@@ -10,7 +12,7 @@ const SideBarHeader = ({ navigateToCallback }) => (
 				backgroundColor: '#28a745',
 				paddingVertical: 28,
 				paddingLeft: 17,
-				paddingTop: StatusBar.currentHeight + 10,
+				paddingTop: sideBarPaddingTop,
 				alignItems: 'center',
 			}}
 		>

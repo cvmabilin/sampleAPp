@@ -11,7 +11,8 @@ YellowBox.ignoreWarnings([
     'Warning: componentWillUpdate is deprecated',
     'Warning: componentWillReceiveProps is deprecated',
     'Warning: Failed child context type',
-    'Warning: Using Math.random is not cryptographically secure!'
+    'Warning: Using Math.random is not cryptographically secure!',
+    'Warning: Unsafe legacy lifecycles will not be called'
 ]);
 
 AppRegistry.registerComponent(appName, () => App);
