@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { Text, Container, Form, Item, Input, Label, Content, H3, Button, Icon  } from 'native-base'
+import base64 from 'react-native-base64'
 import css from '../../shared/style/loginStyle'
 import { userLogin } from './login-actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import tenantUserController from '../../../../../Controller/realm/tenantUserController'
 import systemSettingsController from '../../../../../Controller/realm/systemSettingsController'
+import { alertAfterTransac } from '../../shared/alert/AlertMessage'
 
 class Login extends Component {
 
@@ -16,6 +18,11 @@ class Login extends Component {
     }
 
     componentDidMount() {
+        this.checkExistingUser()
+        // this.apiBasicAuthGet()
+    }
+
+    checkExistingUser = () => {
         let data = tenantUserController.getUsers()
 
         if (data.length == 0) {
@@ -29,6 +36,25 @@ class Login extends Component {
             })
             systemSettingsController.setLocale()
         }
+    }
+
+    apiBasicAuthGet = () => {
+        let url = "https://test2.intra-mart-dev.tmj.cloud/im/logic/api/basic/cvm/test"
+
+        const username = "tmjp_Christian"
+        const password = "tmj123"
+
+        let encodeAuth = base64.encode(username + ":" + password)
+
+        let headers = new Headers()
+        headers.set('Authorization', 'Basic ' + encodeAuth)
+
+        fetch(url, {
+            method: 'GET',
+            headers: headers
+        }).then(response => response.json())
+        .then(data => alertAfterTransac('GET Query', JSON.stringify(data, null, '\t'), () => true) )
+
     }
 
     onUserLogin = () => {
