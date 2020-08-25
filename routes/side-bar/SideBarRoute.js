@@ -8,6 +8,7 @@ import NewUserPageComponent from '../../resources/assets/js/tenant/user/componen
 import ChangePasswordContaner from '../../resources/assets/js/tenant/settings/change-password/ChangePasswordContainer'
 import LanguageContainer from '../../resources/assets/js/tenant/settings/language/LanguageContainer'
 import DefaultPage from '../../resources/assets/js/tenant/default'
+import FinishedConversationComponent from '../../resources/assets/js/tenant/finished-conversation/components/finishedConversationComponent'
 import SideBar from '../../resources/assets/js/shared/nav/sidebar/SideBar'
 import ChatMessageComponent from '../../resources/assets/js/tenant/chat/components/ChatMessageComponent'
 import { leftMainHeader, rightMainHeader } from '../../resources/assets/js/shared/nav/Header'
@@ -19,11 +20,6 @@ const StackRoutes = createStackNavigator(
 		mainPage: {
 			screen: MainComponent,
 			navigationOptions: navigation => navigationConfig(navigation)
-		},
-		DefaultPage: {
-			screen: DefaultPage,
-			navigationOptions: navigation => navigationConfig(navigation)
-
 		},
 		SettingsPage: {
 			screen: SettingsComponent,
@@ -57,7 +53,17 @@ const StackRoutes = createStackNavigator(
 		LanguagePage: {
 			screen: LanguageContainer,
 			navigationOptions: navigation => navigationConfig(navigation)
-		}
+		},
+		DefaultPage: {
+			screen: DefaultPage,
+			navigationOptions: navigation => navigationConfig(navigation)
+
+		},
+		FinishedConvo: {
+			screen: FinishedConversationComponent,
+			navigationOptions: navigation => navigationConfig(navigation)
+
+		},
 	},
 	{
 		defaultNavigationOptions: ({ navigation }) => {

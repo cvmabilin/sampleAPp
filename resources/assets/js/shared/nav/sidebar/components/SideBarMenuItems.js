@@ -20,7 +20,7 @@ const SideBarMenuItems = {
 	finished_conversations: {
 		name: trans => trans.t('nav.finished_conversation'),
 		icon: 'ios-book',
-		route: 'DefaultPage',
+		route: 'FinishedConvo',
 	},
 	user_management: {
 		name: trans => trans.t('nav.user_management.title'),

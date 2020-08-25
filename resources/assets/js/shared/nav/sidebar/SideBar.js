@@ -100,7 +100,7 @@ class SideBar extends Component {
                         style={css.customDrawerTouch}
                     >
 					<View style={css.backButtonRow}>
-			            <Icon name='ios-arrow-back' />
+			            <Icon name='ios-arrow-back' /> 
 						
 						<Text style={css.backButtonColor}>{trans.t('nav.return')}</Text>
 					</View>

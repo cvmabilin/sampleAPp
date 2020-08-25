@@ -3,11 +3,11 @@ import NavHeader from '../shared/nav/Header'
 
 class DefaultPage extends Component {
 
-    static navigationOptions = ({navigation}) => {
-        return {
-            title: navigation.getParam('page_title')
-        }
-    }
+    // static navigationOptions = ({navigation}) => {
+    //     return {
+    //         title: navigation.getParam('page_title')
+    //     }
+    // }
 
 
     render() {
